@@ -16,8 +16,12 @@ const configurations = {
       active: true,
       timeoutInMilliseconds: 0,
       executor: (payload) => {
-        console.log("this code run from layer 1", payload);
-        return payload;
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            console.log("this code run from layer 1", payload);
+            return resolve(payload);
+          }, 2000);
+        });
       },
     },
     {
@@ -25,8 +29,12 @@ const configurations = {
       active: true,
       timeoutInMilliseconds: 0,
       executor: (payload) => {
-        console.log("this code run from layer 2", payload);
-        return payload;
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            console.log("this code run from layer 2", payload);
+            return resolve(payload);
+          }, 2000);
+        });
       },
     },
   ],

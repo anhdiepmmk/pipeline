@@ -6,10 +6,9 @@ const pipeline = (configurations) => {
 
   const executors = _.map(layers, "executor");
 
-  return executors.reduce(
-    (currentValue, currentExecutor) => currentValue.then(currentExecutor),
-    Promise.resolve(startedValue)
-  );
+  return executors.reduce((currentValue, currentExecutor) => {
+    return currentValue.then(currentExecutor);
+  }, Promise.resolve(startedValue));
 };
 
 module.exports = {
