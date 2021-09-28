@@ -1,6 +1,7 @@
 const { pipeline } = require("../src/index");
 
 const configurations = {
+  name: 'an example pipe',
   startedValue: {
     message: "Hello",
   },
@@ -10,11 +11,12 @@ const configurations = {
     beforeEach: () => {},
     afterEach: () => {},
   },
+  excuteStrategy: 'fifo', // fifo, lifo, parallel
   layers: [
     {
       name: "Layer 1",
       active: true,
-      timeoutInMilliseconds: 0,
+      timeoutInMilliseconds: 3000,
       executor: (payload) => {
         return new Promise((resolve) => {
           setTimeout(() => {
@@ -27,7 +29,7 @@ const configurations = {
     {
       name: "Layer 2",
       active: true,
-      timeoutInMilliseconds: 0,
+      timeoutInMilliseconds: 3000,
       executor: (payload) => {
         return new Promise((resolve) => {
           setTimeout(() => {
