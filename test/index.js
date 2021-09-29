@@ -11,7 +11,7 @@ const configurations = {
     beforeEach: () => {},
     afterEach: () => {},
   },
-  excuteStrategy: 'fifo', // fifo, lifo, parallel
+  excuteStrategy: 'fifo', // top, bottom, parallel
   layers: [
     {
       name: "Layer 1",
